@@ -23,7 +23,7 @@ export default function Navbar({
   useEffect(() => {
     if (!token) return;
 
-    fetch("http://localhost:8080/user/me", {
+    fetch("${import.meta.env.VITE_API_URL}/user/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
