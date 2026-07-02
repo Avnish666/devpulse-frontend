@@ -3,6 +3,7 @@ import {  FaUserCircle } from "react-icons/fa";
 import { syncGithub } from "../api/dashboardApi";
 import toast from "react-hot-toast";
 import { FiRefreshCw, FiLogOut } from "react-icons/fi";
+import api from "../api/axiosConfig";
 interface NavbarProps {
     onSync: () => Promise<void>;
   }
@@ -18,24 +19,21 @@ export default function Navbar({
   const [syncing, setSyncing] = useState(false);
   const [user, setUser] = useState<UserProfile | null>(null);
 
-  const token = localStorage.getItem("jwt");
-
   useEffect(() => {
+    const token = localStorage.getItem("jwt");
+  
     if (!token) return;
-
-    fetch("${import.meta.env.VITE_API_URL}/user/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setUser(data);
+  
+    api.get("/user/me")
+      .then((res) => {
+        console.log("User:", res.data);
+        setUser(res.data);
       })
-      .catch((err) => console.error(err));
-  }, [token]);
-
+      .catch((err) => {
+        console.error("Failed to load user:", err);
+      });
+  }, []);
+  
   function logout() {
     localStorage.removeItem("jwt");
     window.location.href = "/";
