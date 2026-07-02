@@ -1,11 +1,10 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://devpulse-1z97.onrender.com",
 });
 
 api.interceptors.request.use((config) => {
-
   const token = localStorage.getItem("jwt");
 
   if (token) {
