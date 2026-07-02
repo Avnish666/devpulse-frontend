@@ -78,7 +78,7 @@ function Dashboard() {
   
       stompClient.subscribe(
         "/topic/activity",
-        (message) => {
+        (message:any) => {
   
           const activity =
             JSON.parse(message.body);

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FaMoon, FaUserCircle } from "react-icons/fa";
+import {  FaUserCircle } from "react-icons/fa";
 import { syncGithub } from "../api/dashboardApi";
 import toast from "react-hot-toast";
 import { FiRefreshCw, FiLogOut } from "react-icons/fi";
