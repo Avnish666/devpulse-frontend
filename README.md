@@ -1,73 +1,245 @@
-# React + TypeScript + Vite
+# 🚀 DevPulse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A real-time GitHub Analytics Dashboard built with Spring Boot, React, WebSockets, PostgreSQL, Redis, and GitHub OAuth.
 
-Currently, two official plugins are available:
+DevPulse allows developers to securely log in with GitHub and visualize repository analytics, commit activity, pull requests, contribution trends, language distribution, and more through an interactive dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📸 Screenshots
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🔐 Login Page
 
-## Expanding the ESLint configuration
+<p align="center">
+  <img src="Screenshot 2026-07-03 141204.png" alt="Login Page" width="900"/>
+</p>
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 📊 Dashboard
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+<p align="center">
+  <img src="dashboard_preview.jpg" alt="Dashboard" width="900"/>
+</p>
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+# ✨ Features
+
+- 🔐 Secure GitHub OAuth Authentication
+- 📈 Real-Time Dashboard
+- 📂 Repository Analytics
+- 📊 Commit Activity Visualization
+- 🔥 Contribution Heatmap
+- 🧑‍💻 Language Distribution Chart
+- 🔄 One-click GitHub Synchronization
+- ⚡ Live Updates using WebSockets
+- 🔑 JWT Authentication
+- 📦 PostgreSQL Database
+- 🚀 Redis Caching
+- ☁️ Deployed on Render + Vercel
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Axios
+- React Router
+- Chart.js
+- SockJS
+- STOMP.js
+
+## Backend
+
+- Spring Boot
+- Spring Security
+- Spring OAuth2 Client
+- JWT Authentication
+- Spring WebSocket
+- Spring Data JPA
+- Hibernate
+
+## Database
+
+- PostgreSQL (Neon)
+
+## Cache
+
+- Redis (Upstash)
+
+## Deployment
+
+- Backend → Render
+- Frontend → Vercel
+
+---
+
+# 🏗 Architecture
+
+```
+                GitHub OAuth
+                      │
+                      ▼
+              Spring Boot Backend
+                      │
+        ┌─────────────┼──────────────┐
+        │             │              │
+        ▼             ▼              ▼
+   PostgreSQL      GitHub API     Redis Cache
+        │
+        ▼
+   WebSocket Server
+        │
+        ▼
+     React Frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# 📊 Dashboard Includes
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Repository Count
+- Commit Count
+- Pull Request Statistics
+- Commit Activity Graph
+- Language Distribution Pie Chart
+- Contribution Heatmap
+- Profile Information
+- Real-Time Activity Feed
+
+---
+
+# 🔐 Authentication Flow
+
 ```
+User
+   │
+   ▼
+GitHub OAuth
+   │
+   ▼
+Spring Security
+   │
+   ▼
+Generate JWT
+   │
+   ▼
+React Dashboard
+```
+
+---
+
+# 📁 Project Structure
+
+```
+DevPulse
+│
+├── Backend
+│   ├── Controller
+│   ├── Service
+│   ├── Repository
+│   ├── Entity
+│   ├── Config
+│   ├── Security
+│   └── DTO
+│
+├── Frontend
+│   ├── components
+│   ├── pages
+│   ├── api
+│   ├── assets
+│   └── websocket
+│
+└── Database
+```
+
+---
+
+# ⚙️ Environment Variables
+
+## Backend
+
+```
+SPRING_DATASOURCE_URL=
+SPRING_DATASOURCE_USERNAME=
+SPRING_DATASOURCE_PASSWORD=
+
+REDIS_HOST=
+REDIS_PORT=
+REDIS_PASSWORD=
+
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
+
+JWT_SECRET=
+
+FRONTEND_URL=
+```
+
+
+---
+
+
+
+# 🌐 Live Demo
+
+**Frontend**
+
+```
+https://devpulse-frontend-ebon.vercel.app
+```
+
+**Backend**
+
+```
+https://devpulse-1z97.onrender.com
+```
+
+---
+
+
+
+# 🤝 Contributing
+
+Contributions are always welcome!
+
+1. Fork the repository
+2. Create your feature branch
+
+```bash
+git checkout -b feature/AmazingFeature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add AmazingFeature"
+```
+
+4. Push to the branch
+
+```bash
+git push origin feature/AmazingFeature
+```
+
+5. Open a Pull Request
+
+---
+
+# 👨‍💻 Author
+
+**Avnish Singh**
+
+GitHub: https://github.com/Avnish666
+
+---
+
+# ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
