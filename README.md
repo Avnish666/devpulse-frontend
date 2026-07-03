@@ -138,25 +138,20 @@ React Dashboard
 # 📁 Project Structure
 
 ```
-DevPulse
-│
-├── Backend
-│   ├── Controller
-│   ├── Service
-│   ├── Repository
-│   ├── Entity
-│   ├── Config
-│   ├── Security
-│   └── DTO
-│
-├── Frontend
-│   ├── components
-│   ├── pages
-│   ├── api
-│   ├── assets
-│   └── websocket
-│
-└── Database
+Devpulse Frontend
+  ├── components
+  |
+  ├── pages
+  |
+  ├── api
+  |
+  ├── assets
+  |
+  ├── types
+  |
+  └── websocket.ts
+
+
 ```
 
 ---
